@@ -13,7 +13,7 @@ Bir for döngüsü ile aşağıdaki çıktıyı yazar mısınız.
 
 ##Code
 
-```public static void writeStars(int rowNumber) {
+public static void writeStars(int rowNumber) {
         //1,2,4,6,8,10
         int n = 1;
         int k = 1;
