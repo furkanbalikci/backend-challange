@@ -4,6 +4,8 @@
 CRUD işlemlerinin yapılabildiği Java Spring kullanılarak yazılan bir web servis uygulamasıdır. Proje özelinde veritabanında 2 tablo bulunmaktadır.
 Bu tablolardan biri çalışan(employee) diğeri şirket(company) verilerini tutar. 
 
+**Not:** application.properties dosyası içerisinde veritabanı bağlantılarını kendi veritabanı bilgilerinize göre yapmayı unutmayın.
+
 
 ## Tech Stack
 
