@@ -29,3 +29,4 @@ public static void writeStars(int rowNumber) {
 
 
 #### Output
+<img width="832" alt="Screenshot 2023-03-30 at 16 31 55" src="https://user-images.githubusercontent.com/46796424/228856931-f3924287-0576-4e60-a2ad-8a0ce6f17eaa.png">
