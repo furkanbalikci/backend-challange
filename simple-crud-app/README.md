@@ -32,7 +32,7 @@ Start the server
 
 ## API Reference
 
-### Employee Model Body(#employee-model)
+### Employee Model Body
 
 | Feature    | Type              |
 |------------|-------------------|
@@ -96,7 +96,7 @@ Verilen çalışan bilgilerini veritabanına kaydeder.
 
 | Request Body | Type             | Description                            |
 |:-------------|:-----------------|:---------------------------------------|
-| `employee`   | `List<Employee>` | [Employee Model Body](#employee-model) |
+| `employee`   | `List<Employee>` | [Employee Model Body](#-employee-model-body) |
 
 Verilen çalışan bilgilerini toplu şekilde veritabanına kaydeder.
 
