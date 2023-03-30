@@ -128,7 +128,7 @@ Verilen çalışan Id'sine göre çalışan bilgilerini veritabanından siler.
 
 
 
-### Company Model Body(#company-model)
+### Company Model Body
 
 | Feature           | Type              |
 |-------------------|-------------------|
@@ -167,7 +167,7 @@ Verilen şirket Id'sine göre şirket bilgisini döner.
 
 | Request Body | Type      | Description                          |
 |:-------------|:----------|:-------------------------------------|
-| `company`    | `Company` | [Company Model Body](#company-model) |
+| `company`    | `Company` | [Company Model Body](https://github.com/furkanbalikci/backend-challange/blob/master/simple-crud-app/README.md?plain=1#L131) |
 
 Verilen şirket bilgilerini veritabanına kaydeder.
 
