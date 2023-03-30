@@ -15,13 +15,13 @@ Bu tablolardan biri çalışan(employee) diğeri şirket(company) verilerini tut
 Clone the project
 
 ```bash
-  git clone https://github.com/furkanbalikci/spring-security-jdbc-body.git
+  git clone https://github.com/furkanbalikci/backend-challange.git
 ```
 
 Go to the project directory
 
 ```bash
-  cd security-test
+  cd backend-challange/simple-crud-project
 ```
 
 Start the server
