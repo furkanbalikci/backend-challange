@@ -83,7 +83,7 @@ Verilen şirket ismine göre o şirkete kayıtlı olan çalışanların listesin
 
 | Request Body | Type       | Description                            |
 |:-------------|:-----------|:---------------------------------------|
-| `employee`   | `Employee` | [Employee Model Body](#employee-model-body) |
+| `employee`   | `Employee` | [Employee Model Body]([#employee-model-body]) |
 
 Verilen çalışan bilgilerini veritabanına kaydeder. 
 
