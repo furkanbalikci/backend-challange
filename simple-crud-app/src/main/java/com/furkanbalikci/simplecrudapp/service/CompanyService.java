@@ -43,9 +43,7 @@ public class CompanyService {
         if (id == null || id == 0) {
             throw new NullPointerException();
         }
-        if (companyRepository.findByName(newCompany.getName()).isPresent()) {
-            throw new EntityAlreadyExistException("Company already exist with name: " + newCompany.getName());
-        }
+
         Optional<Company> foundCompany = companyRepository.findById(id);
 
         if (foundCompany.isPresent()) {

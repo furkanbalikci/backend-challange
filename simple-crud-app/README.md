@@ -4,12 +4,11 @@
 CRUD işlemlerinin yapılabildiği Java Spring kullanılarak yazılan bir web servis uygulamasıdır. Proje özelinde veritabanında 2 tablo bulunmaktadır.
 Bu tablolardan biri çalışan(employee) diğeri şirket(company) verilerini tutar. 
 
-**Not:** application.properties dosyası içerisinde veritabanı bağlantılarını kendi veritabanı bilgilerinize göre yapmayı unutmayın.
-
 
 ## Tech Stack
 
 **Server:** Java 17, Spring Boot 3.0.4 , Spring Data JPA 
+
 **Database**: PostgreSQL 14
 
 ## Run Locally
@@ -17,13 +16,13 @@ Bu tablolardan biri çalışan(employee) diğeri şirket(company) verilerini tut
 Clone the project
 
 ```bash
-  git clone https://github.com/furkanbalikci/backend-challange.git
+  git clone https://github.com/furkanbalikci/spring-security-jdbc-body.git
 ```
 
 Go to the project directory
 
 ```bash
-  cd backend-challange/simple-crud-project
+  cd security-test
 ```
 
 Start the server
@@ -34,7 +33,7 @@ Start the server
 
 ## API Reference
 
-### Employee Model Body
+### Employee Model Body(#employee-model)
 
 | Feature    | Type              |
 |------------|-------------------|
@@ -85,7 +84,7 @@ Verilen şirket ismine göre o şirkete kayıtlı olan çalışanların listesin
 
 | Request Body | Type       | Description                            |
 |:-------------|:-----------|:---------------------------------------|
-| `employee`   | `Employee` | [Employee Model Body](https://github.com/furkanbalikci/backend-challange/blob/master/simple-crud-app/README.md?plain=1#L35)  |
+| `employee`   | `Employee` | [Employee Model Body](#employee-model) |
 
 Verilen çalışan bilgilerini veritabanına kaydeder. 
 
@@ -98,7 +97,7 @@ Verilen çalışan bilgilerini veritabanına kaydeder.
 
 | Request Body | Type             | Description                            |
 |:-------------|:-----------------|:---------------------------------------|
-| `employee`   | `List<Employee>` | [Employee Model Body](#-employee-model-body) |
+| `employee`   | `List<Employee>` | [Employee Model Body](#employee-model) |
 
 Verilen çalışan bilgilerini toplu şekilde veritabanına kaydeder.
 
@@ -130,7 +129,7 @@ Verilen çalışan Id'sine göre çalışan bilgilerini veritabanından siler.
 
 
 
-### Company Model Body
+### Company Model Body(#company-model)
 
 | Feature           | Type              |
 |-------------------|-------------------|
@@ -169,7 +168,7 @@ Verilen şirket Id'sine göre şirket bilgisini döner.
 
 | Request Body | Type      | Description                          |
 |:-------------|:----------|:-------------------------------------|
-| `company`    | `Company` | [Company Model Body](https://github.com/furkanbalikci/backend-challange/blob/master/simple-crud-app/README.md?plain=1#L131) |
+| `company`    | `Company` | [Company Model Body](#company-model) |
 
 Verilen şirket bilgilerini veritabanına kaydeder.
 

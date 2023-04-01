@@ -1,5 +1,6 @@
 package com.furkanbalikci.simplecrudapp.controller;
 
+import com.furkanbalikci.simplecrudapp.dto.EmployeeDTO;
 import com.furkanbalikci.simplecrudapp.model.Employee;
 import com.furkanbalikci.simplecrudapp.service.EmployeeService;
 import lombok.RequiredArgsConstructor;
@@ -17,8 +18,8 @@ public class EmployeeController {
     private final EmployeeService employeeService;
 
     @GetMapping("/getAll")
-    public ResponseEntity<List<Employee>> getAll() {
-        List<Employee> employees = employeeService.getAll();
+    public ResponseEntity<List<EmployeeDTO>> getAll() {
+        List<EmployeeDTO> employees = employeeService.getAll();
         if (employees.isEmpty()) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
@@ -26,23 +27,23 @@ public class EmployeeController {
     }
 
     @GetMapping("/getEmployeeById/{id}")
-    public ResponseEntity<Employee> getEmployeeById(@PathVariable Long id) {
-        Employee employee = employeeService.getEmployeeById(id);
-        return new ResponseEntity<>(employee, HttpStatus.OK);
+    public ResponseEntity<EmployeeDTO> getEmployeeById(@PathVariable Long id) {
+        EmployeeDTO employeeDTO = employeeService.getEmployeeById(id);
+        return new ResponseEntity<>(employeeDTO, HttpStatus.OK);
     }
 
     @GetMapping("/getEmployeesByCompanyName/{companyName}")
-    public ResponseEntity<List<Employee>> getEmployeesByCompanyName(@PathVariable String companyName) {
-        List<Employee> employees = employeeService.getEmployeesByCompanyName(companyName);
+    public ResponseEntity<List<EmployeeDTO>> getEmployeesByCompanyName(@PathVariable String companyName) {
+        List<EmployeeDTO> employees = employeeService.getEmployeesByCompanyName(companyName);
         return ResponseEntity.status(HttpStatus.OK).body(employees);
     }
     @PostMapping("/save")
-    public ResponseEntity<?> save(@RequestBody Employee employee, @RequestParam String companyName) {
-        if (companyName == null || companyName.trim().isEmpty()) {
+    public ResponseEntity<?> save(@RequestBody EmployeeDTO employeeDTO) {
+        if (employeeDTO.getCompanyName() == null || employeeDTO.getCompanyName().trim().isEmpty()) {
             return ResponseEntity.badRequest().body("Company name cannot be empty !");
         }
 
-        Employee savedEmployee = employeeService.save(employee, companyName);
+        EmployeeDTO savedEmployee = employeeService.save(employeeDTO);
         try {
             return ResponseEntity.status(HttpStatus.CREATED).body(savedEmployee);
         }catch (IllegalArgumentException e) {
@@ -60,23 +61,18 @@ public class EmployeeController {
 
     }
     @PutMapping("/update/{id}")
-    public ResponseEntity<?> update(@RequestBody Employee employee, @PathVariable Long id, @RequestParam String companyName) {
-        if (companyName == null || companyName.trim().isEmpty()) {
+    public ResponseEntity<?> update(@RequestBody EmployeeDTO employeeDTO, @PathVariable Long id) {
+        if (employeeDTO.getCompanyName() == null || employeeDTO.getCompanyName().trim().isEmpty()) {
             return ResponseEntity.badRequest().body("Company name cannot be empty !");
         }
-
-        employeeService.update(employee, id, companyName);
-        Employee updatedEmployee = employeeService.getEmployeeById(id);
-        return ResponseEntity.ok(updatedEmployee);
+        employeeService.update(employeeDTO, id);
+        return ResponseEntity.ok().build();
     }
 
     @DeleteMapping("delete/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
-        Employee employee = employeeService.getEmployeeById(id);
-        if (employee == null) {
-            return ResponseEntity.notFound().build();
-        }
-        employeeService.delete(employee);
+
+        employeeService.delete(id);
         return ResponseEntity.ok().build();
     }
 }
